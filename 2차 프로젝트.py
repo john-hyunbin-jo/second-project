@@ -1,0 +1,31 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+data1 = pd.read_csv('C:\\Temp\\opensource excel\\주요 방한 목적.csv')
+print(data1)
+print('\n')
+purpose_data = data1.iloc[57:63, 0:5] 
+print(purpose_data)
+purpose_data['2018'] = purpose_data['2018'].astype('int')
+purpose_data['2019'] = purpose_data['2019'].astype('int')
+purpose_data['2020'] = purpose_data['2020'].astype('int')
+print(purpose_data.dtypes)
+purpose_data.plot(kind='bar',x='cat2', y='2018')
+purpose_data.plot(kind='bar',x='cat2', y='2019')
+purpose_data.plot(kind='bar',x='cat2', y='2020')
+plt.show()
+
+data2 = pd.read_csv('C:\\Temp\\opensource excel\\선호 음식1.csv')
+print(data2)
+print('\n')
+ax = plt.gca()
+data2.plot(kind='line',x='meal',y='2018', ax=ax)
+data2.plot(kind='line',x='meal',y='2019', ax=ax)
+data2.plot(kind='line',x='meal',y='2020', ax=ax)
+
+data3 = pd.read_csv('C:\\Temp\\opensource excel\\관광지1.csv')
+print(data3)
+print('\n')
+data3.plot(kind='scatter',x='attraction',y='2018',color='green')
+data3.plot(kind='scatter',x='attraction',y='2019',color='red')
+data3.plot(kind='scatter',x='attraction',y='2020',color='blue')
+plt.show()
